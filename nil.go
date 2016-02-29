@@ -48,6 +48,9 @@ func (n *String) Scan(value interface{}) error {
 }
 
 func (n String) Value() (driver.Value, error) {
+	if n.IsNil() {
+		return nil, nil
+	}
 	return n.String(), nil
 }
 
@@ -92,6 +95,9 @@ func (n *Bool) Scan(value interface{}) error {
 }
 
 func (n Bool) Value() (driver.Value, error) {
+	if n.IsNil() {
+		return nil, nil
+	}
 	return n.Bool(), nil
 }
 
@@ -154,6 +160,9 @@ func (n Time) String() string {
 }
 
 func (n Time) Value() (driver.Value, error) {
+	if n.IsNil() {
+		return nil, nil
+	}
 	return n.Time(), nil
 }
 
@@ -210,6 +219,9 @@ func (n *Int64) Scan(value interface{}) error {
 }
 
 func (n Int64) Value() (driver.Value, error) {
+	if n.IsNil() {
+		return nil, nil
+	}
 	return n.Int64(), nil
 }
 
