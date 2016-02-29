@@ -33,7 +33,7 @@ func (n String) String() string {
 
 func (n *String) Scan(value interface{}) error {
 	if value == nil {
-		return errors.New("nilable.String.Scan: value is nil")
+		return nil
 	}
 	switch v := value.(type) {
 	case string:
@@ -83,7 +83,7 @@ func (n Bool) Bool() bool {
 
 func (n *Bool) Scan(value interface{}) error {
 	if value == nil {
-		return errors.New("nilable.Bool.Scan: value is nil")
+		return nil
 	}
 	switch v := value.(type) {
 	case bool:
@@ -141,7 +141,7 @@ func (n Time) Time() time.Time {
 
 func (n *Time) Scan(value interface{}) error {
 	if value == nil {
-		return errors.New("nilable.Time.Scan: value is nil")
+		return nil
 	}
 	switch v := value.(type) {
 	case time.Time:
@@ -195,7 +195,7 @@ func (n Int64) Int64() int64 {
 
 func (n *Int64) Scan(value interface{}) error {
 	if value == nil {
-		return errors.New("nilable.Int64.Scan: value is nil")
+		return nil
 	}
 	switch v := value.(type) {
 	case int64:
