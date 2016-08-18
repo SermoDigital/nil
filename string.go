@@ -60,11 +60,11 @@ type randy interface {
 	Intn(n int) int
 }
 
-func NewPopulatedString(r randy, _ ...bool) String {
+func NewPopulatedString(r randy, _ ...bool) *String {
 	buf := make([]byte, r.Intn(50))
 	for i := 0; i < len(buf); i++ {
 		buf[i] = byte(r.Intn(255))
 	}
 	str := string(buf)
-	return String{s: &str}
+	return &String{s: &str}
 }

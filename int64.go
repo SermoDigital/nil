@@ -80,7 +80,7 @@ func (n Int64) Compare(n2 Int64) int {
 	}
 }
 
-func NewPopulatedInt64(r randy, _ ...Int64) Int64 {
+func NewPopulatedInt64(r randy, _ ...Int64) *Int64 {
 	n := int64(r.Intn(1000))
-	return Int64{n: &n}
+	return &Int64{n: &n}
 }

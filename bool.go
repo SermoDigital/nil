@@ -63,7 +63,7 @@ func (b Bool) Compare(b2 Bool) int {
 	}
 }
 
-func NewPopulatedBool(r randy, _ ...bool) Bool {
+func NewPopulatedBool(r randy, _ ...bool) *Bool {
 	b := r.Intn(1000)%2 == 0
-	return Bool{b: &b}
+	return &Bool{b: &b}
 }
