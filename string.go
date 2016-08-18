@@ -1,3 +1,5 @@
+// +build protobuf
+
 package nilable
 
 func (s String) Size() int {
