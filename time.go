@@ -52,7 +52,7 @@ func (t Time) Compare(t2 Time) int {
 	}
 }
 
-func NewPopulatedTime(r randy) Time {
+func NewPopulatedTime(r randy, _ ...bool) Time {
 	const maxInt = int(^uint(0) >> 1)
 	t := time.Unix(int64(r.Intn(maxInt)), int64(r.Intn(maxInt)))
 	return Time{t: &t}
