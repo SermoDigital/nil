@@ -32,10 +32,9 @@ func (n String) String() string {
 }
 
 func (n *String) Scan(value interface{}) error {
-	if value == nil {
-		return nil
-	}
 	switch v := value.(type) {
+	case nil:
+		return nil
 	case string:
 		n.s = &v
 	case []byte:
