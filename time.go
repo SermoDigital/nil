@@ -24,7 +24,15 @@ func (t Time) MarshalTo(data []byte) (int, error) {
 }
 
 func (t *Time) Unmarshal(data []byte) error {
-	return t.t.UnmarshalBinary(data)
+	if t.t == nil {
+		t.t = new(time.Time)
+	}
+	err := t.t.UnmarshalBinary(data)
+	if err != nil {
+		t.t = nil
+		return err
+	}
+	return nil
 }
 
 func (t Time) Marshal() ([]byte, error) {
