@@ -9,15 +9,9 @@ import (
 
 func (n Int64) Equal(n2 Int64) bool {
 	if n.n == nil {
-		if n2.n == nil {
-			return true
-		}
-		return false
+		return n2.n == nil
 	}
-	if n2.n == nil {
-		return false
-	}
-	return *n.n == *n2.n
+	return n2.n != nil && *n.n == *n2.n
 }
 
 func varintLen(x int64) int {

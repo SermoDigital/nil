@@ -4,15 +4,9 @@ package nilable
 
 func (s String) Equal(s2 String) bool {
 	if s.s == nil {
-		if s2.s == nil {
-			return true
-		}
-		return false
+		return s2.s == nil
 	}
-	if s2.s == nil {
-		return false
-	}
-	return *s.s == *s2.s
+	return s2.s != nil && *s.s == *s2.s
 }
 
 func (s String) Size() int {

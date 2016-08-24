@@ -6,15 +6,9 @@ import "errors"
 
 func (b Bool) Equal(b2 Bool) bool {
 	if b.b == nil {
-		if b2.b == nil {
-			return true
-		}
-		return false
+		return b2.b == nil
 	}
-	if b2.b == nil {
-		return false
-	}
-	return *b.b == *b2.b
+	return b2.b != nil && *b.b == *b2.b
 }
 
 func (b Bool) Size() int {

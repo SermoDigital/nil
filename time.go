@@ -6,15 +6,9 @@ import "time"
 
 func (t Time) Equal(t2 Time) bool {
 	if t.t == nil {
-		if t2.t == nil {
-			return true
-		}
-		return false
+		return t2.t == nil
 	}
-	if t2.t == nil {
-		return false
-	}
-	return t.t.Equal(*t2.t)
+	return t2.t != nil && t.t.Equal(*t2.t)
 }
 
 func (t Time) Size() int {
