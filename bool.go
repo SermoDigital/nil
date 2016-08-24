@@ -4,6 +4,19 @@ package nilable
 
 import "errors"
 
+func (b Bool) Equal(b2 Bool) bool {
+	if b.b == nil {
+		if b2.b == nil {
+			return true
+		}
+		return false
+	}
+	if b2.b == nil {
+		return false
+	}
+	return *b.b == *b2.b
+}
+
 func (b Bool) Size() int {
 	if b.b == nil {
 		return 0

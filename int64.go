@@ -7,6 +7,19 @@ import (
 	"errors"
 )
 
+func (n Int64) Equal(n2 Int64) bool {
+	if n.n == nil {
+		if n2.n == nil {
+			return true
+		}
+		return false
+	}
+	if n2.n == nil {
+		return false
+	}
+	return *n.n == *n2.n
+}
+
 func varintLen(x int64) int {
 	ux := uint64(x) << 1
 	if x < 0 {

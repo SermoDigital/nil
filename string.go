@@ -2,6 +2,19 @@
 
 package nilable
 
+func (s String) Equal(s2 String) bool {
+	if s.s == nil {
+		if s2.s == nil {
+			return true
+		}
+		return false
+	}
+	if s2.s == nil {
+		return false
+	}
+	return *s.s == *s2.s
+}
+
 func (s String) Size() int {
 	if s.s == nil {
 		return 0

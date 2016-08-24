@@ -4,6 +4,19 @@ package nilable
 
 import "time"
 
+func (t Time) Equal(t2 Time) bool {
+	if t.t == nil {
+		if t2.t == nil {
+			return true
+		}
+		return false
+	}
+	if t2.t == nil {
+		return false
+	}
+	return t.t.Equal(*t2.t)
+}
+
 func (t Time) Size() int {
 	if t.t == nil {
 		return 0
