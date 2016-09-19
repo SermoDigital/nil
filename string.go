@@ -2,6 +2,8 @@
 
 package nilable
 
+import "encoding/base64"
+
 func (s String) Equal(s2 String) bool {
 	if s.s == nil {
 		return s2.s == nil
@@ -72,6 +74,6 @@ func NewPopulatedString(r randy, _ ...bool) *String {
 	for i := 0; i < len(buf); i++ {
 		buf[i] = byte(r.Intn(255))
 	}
-	str := string(buf)
+	str := base64.StdEncoding.EncodeToString(buf)
 	return &String{s: &str}
 }
